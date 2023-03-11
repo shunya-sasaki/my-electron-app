@@ -1,5 +1,5 @@
 import { useRecoilState } from "recoil";
-import { atomMode } from "../atoms/atomMode";
+import { modeState } from "../atoms/modeState";
 
 export const Sidebar = () => {
   return (
