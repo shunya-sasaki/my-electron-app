@@ -4,21 +4,24 @@ import { Main } from "./components/Main";
 import { Sidebar } from "./components/Sidebar";
 import { Footer } from "./components/Footer";
 import { RecoilRoot } from "recoil";
+import mermaid from "mermaid";
 
 function App() {
   return (
     <RecoilRoot>
       <header className="App-haeder"></header>
-      <Navi />
-      <hr></hr>
-      <div className="flex h-full">
-        <div>
-          <Sidebar />
+      <div className="h-screen">
+        <div className="h-[5%]">
+          <Navi />
         </div>
-        <Main />
+        <div className="flex h-[92.5%]">
+          <Sidebar />
+          <Main />
+        </div>
+        <div className="h-[2.5%]">
+          <Footer />
+        </div>
       </div>
-      <hr></hr>
-      <Footer />
     </RecoilRoot>
   );
 }

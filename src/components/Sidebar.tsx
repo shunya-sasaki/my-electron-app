@@ -2,22 +2,26 @@ import { useRecoilState } from "recoil";
 import { modeState } from "../atoms/modeState";
 
 export const Sidebar = () => {
+  const [mode, setMode] = useRecoilState<string>(modeState);
+
+  const modes = ["Data", "Process", "Help"];
+
   return (
-    <div className="border-r h-screen  w-32 bg-white top-0 bottom-0">
-      <div className="h-full px-2 py-4 overflow-y-scroll">
+    <div className="border-r h-full  w-32">
         <ul className="space-y-4 text-lg font-bold">
-          <li>
-            <div className="px-2 rounded-lg duration-300 hover:bg-indigo-500 hover:text-white">
-              Data
-            </div>
-          </li>
-          <li>
-            <div className="px-2 rounded-lg duration-300 hover:bg-indigo-500 hover:text-white">
-              Process
-            </div>
-          </li>
+          {modes.map((mode) => (
+            <li key={mode + "_list"}>
+              <button
+                className="px-2 w-full text-left rounded-lg duration-300 hover:bg-slate-500 hover:text-white"
+                onClick={() => {
+                  setMode(mode);
+                }}
+              >
+                {mode}
+              </button>
+            </li>
+          ))}
         </ul>
       </div>
-    </div>
   );
 };
